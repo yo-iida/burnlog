@@ -1,0 +1,35 @@
+default: &default
+  encoding: utf8
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
+production:
+  <<: *default
+  port:
+  host:
+  database:
+  username:
+  password:
+
+staging:
+  <<: *default
+  port:
+  host:
+  database:
+  username:
+  password:
+
+development:
+  <<: *default
+  host: localhost
+  database: burnlog_dev
+  username: yoshiki
+  password: admin1234
+
+test:
+  <<: *default
+  database: burnlog_test
+  host: localhost
+  username: yoshiki
+  password: admin1234
