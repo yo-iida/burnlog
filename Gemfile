@@ -10,6 +10,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
 
 gem "flat-ui-rails"
+gem "font-awesome-rails"
 
 gem 'omniauth'
 gem 'omniauth-github'
