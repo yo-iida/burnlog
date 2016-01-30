@@ -15,6 +15,9 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'octokit', '~> 4.0'
 
+gem 'devise'
+gem 'figaro'
+
 group :production do
   gem 'rails_12factor'
 end
