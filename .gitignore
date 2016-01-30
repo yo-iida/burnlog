@@ -30,3 +30,4 @@ vendor/bundle
 coverage/*
 *.swp
 Thumbs.db
+node_modules/
