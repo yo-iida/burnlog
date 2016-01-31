@@ -31,3 +31,6 @@ coverage/*
 *.swp
 Thumbs.db
 node_modules/
+
+# Ignore application configuration
+/config/application.yml
