@@ -5,31 +5,29 @@
 <p>open: <%= @open_total_points %></p>
 <p>closed: <%= @closed_total_points %></p>
 
-
-<%
-data = {
-  labels: @data_labels,
-  datasets: [
-    {
+<canvas id="myChart" width="300" height="100"></canvas>
+<script>
+var ctx = document.getElementById("myChart").getContext("2d");
+ctx.canvas.width = 300;
+ctx.canvas.height = 100;
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: <%= raw @data_labels  %>,
+    datasets: [
+      {
         label: "計画",
         backgroundColor: "rgba(220,220,220,0.2)",
         borderColor: "rgba(220,220,220,1)",
-        data: @dataset1
-    },
-    {
+        data: <%= raw @dataset1 %>
+      },
+      {
         label: "実績",
         backgroundColor: "rgba(151,187,205,0.2)",
         borderColor: "rgba(151,187,205,1)",
-        data: @dataset2
-    }
-  ]
-}
-options = {
-  class: 'chart',
-  id: 0,
-  width: 500,
-  height: 500
-}
-%>
-
-<%= line_chart data, options %>
+        data: <%= raw @dataset2 %>
+      },
+    ],
+  },
+});
+</script>
