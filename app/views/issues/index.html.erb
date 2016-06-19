@@ -1,0 +1,13 @@
+<h1>Issues#index</h1>
+
+<h2>List of sprint backlog issues (<%= @sprint_backlog_issues.count %>)</h2>
+<%= render partial: "issues_table", locals: {issues: @sprint_backlog_issues}%>
+
+<h2>List of in progress issues (<%= @in_progress_issues.count %>)</h2>
+<%= render partial: "issues_table", locals: {issues: @in_progress_issues}%>
+
+<h2>List of in review issues (<%= @in_review_issues.count %>)</h2>
+<%= render partial: "issues_table", locals: {issues: @in_review_issues}%>
+
+<h2>List of closed issues (<%= @closed_issues.count %>)</h2>
+<%= render partial: "issues_table", locals: {issues: @closed_issues}%>
