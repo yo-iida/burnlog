@@ -6,30 +6,14 @@ default: &default
 
 production:
   <<: *default
-  port:
-  host:
-  database:
-  username:
-  password:
-
-staging:
-  <<: *default
-  port:
-  host:
-  database:
-  username:
-  password:
+  database: <%= (ENV['DATABASE_URL'] || '') %>
 
 development:
   <<: *default
-  host: localhost
   database: burnlog_dev
-  username: yoshiki
-  password: admin1234
+  username: root
 
 test:
   <<: *default
   database: burnlog_test
-  host: localhost
-  username: yoshiki
-  password: admin1234
+  username: root
