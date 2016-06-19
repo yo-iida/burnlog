@@ -14,12 +14,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
   def user_params
-    p = request.env["omniauth.auth"].slice(:info, :provider, :uid).to_h
     {
-      username: p["info"]["nickname"],
-      email: p["info"]["email"],
-      provider: p["provider"],
-      uid: p["uid"]
+      username: request.env["omniauth.auth"]["info"]["nickname"],
+      email: request.env["omniauth.auth"]["info"]["email"],
+      provider: request.env["omniauth.auth"]["provider"],
+      uid: request.env["omniauth.auth"]["uid"]
     }
   end
 end
