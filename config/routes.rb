@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root 'default#index'
 
   resources :issues, only: [:index]
+  resources :burndownchart, only: [:index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

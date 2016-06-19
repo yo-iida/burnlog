@@ -1,5 +1,7 @@
 <h1>Issues#index</h1>
 
+<%= link_to "burndownchart", burndownchart_index_path(repo: params[:repo]) %>
+
 <h2>List of sprint backlog issues (<%= @sprint_backlog_issues.count %>)</h2>
 <%= render partial: "issues_table", locals: {issues: @sprint_backlog_issues}%>
 
