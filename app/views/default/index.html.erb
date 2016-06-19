@@ -1,7 +1,10 @@
 <h1>Default#index</h1>
-<p>Find me in app/views/default/index.html.erb</p>
 <% if user_signed_in? %>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <h2>リポジトリ一覧</h2>
+  <% @repos.each do |repo| %>
+    <p><%= link_to repo.full_name, repo.html_url, alt: repo.description %> <%= link_to "issues", issues_path(repo: repo.full_name) %></p>
+  <% end %>
 <% else %>
-    <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
+  <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
 <% end %>
