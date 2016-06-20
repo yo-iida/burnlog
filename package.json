@@ -1,6 +1,25 @@
 {
-  "private": true,
-  "devDependencies": {
+  "name": "burnlog",
+  "version": "0.0.1",
+  "description": "generate burndownchart",
+  "engines": {
+    "node": "4.4.4",
+    "npm": "3.8.2"
+  },
+  "scripts": {
+    "test": "echo \"Pending: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yo-iida/burnlog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yo-iida/burnlog/issues"
+  },
+  "homepage": "https://github.com/yo-iida/burnlog#readme",
+  "dependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.3.16",
     "babel-preset-es2015": "^6.3.13",
     "babelify": "^7.2.0",
