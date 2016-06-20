@@ -5,11 +5,11 @@
 <p>open: <%= @open_total_points %></p>
 <p>closed: <%= @closed_total_points %></p>
 
-<canvas id="myChart" width="300" height="100"></canvas>
+<canvas id="myChart" width="300" height="150"></canvas>
 <script>
 var ctx = document.getElementById("myChart").getContext("2d");
 ctx.canvas.width = 300;
-ctx.canvas.height = 100;
+ctx.canvas.height = 150;
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
