@@ -1,0 +1,32 @@
+{
+  "name": "burnlog",
+  "description": "",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:schema:load"
+  },
+  "env": {
+    "APP_ID": {
+      "required": true
+    },
+    "APP_SECRET": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "urn:buildpack:heroku/nodejs"
+    },
+    {
+      "url": "urn:buildpack:heroku/ruby"
+    }
+  ]
+}
