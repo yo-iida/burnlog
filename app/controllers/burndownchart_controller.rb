@@ -52,6 +52,14 @@ class BurndownchartController < ApplicationController
         performance = performance - p
         @dataset2 << performance
       end
+      @dataset2.pop(slice_num)
     end
+  end
+
+  private
+
+  def slice_num
+    # 実績datasetの未確定dataを削るための基準
+    Date.today.wday > 0 ? 5 - Date.today.wday : 0
   end
 end
