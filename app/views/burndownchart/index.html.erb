@@ -5,12 +5,12 @@
 <p>open: <%= @open_total_points %></p>
 <p>closed: <%= @closed_total_points %></p>
 
-<canvas id="myChart" width="300" height="150"></canvas>
+<canvas id="burndownchart" width="300" height="150"></canvas>
 <script>
-var ctx = document.getElementById("myChart").getContext("2d");
+var ctx = document.getElementById("burndownchart").getContext("2d");
 ctx.canvas.width = 300;
 ctx.canvas.height = 150;
-var myChart = new Chart(ctx, {
+var burndownchart = new Chart(ctx, {
   type: 'line',
   data: {
     labels: <%= raw @data_labels  %>,
