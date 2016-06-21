@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => {
+    :omniauth_callbacks => "users/omniauth_callbacks",
+    :sessions      => "devise/sessions",
+    :registrations => "devise/registrations"
+  }
 
   devise_scope :user do
     get 'sign_out', :to => 'devise/sessions#destroy'
