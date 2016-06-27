@@ -13,3 +13,6 @@
 
 <h2>List of closed issues (<%= @closed_issues.count %>)</h2>
 <%= render partial: "issues_table", locals: {issues: @closed_issues}%>
+
+<h2>List of closed issues with point (<%= @closed_issues_with_point.count %>)</h2>
+<%= render partial: "issues_table", locals: {issues: @closed_issues_with_point}%>
