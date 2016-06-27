@@ -5,12 +5,12 @@ class BurndownchartController < ApplicationController
       client = Octokit::Client.new access_token: token
       client.auto_paginate = true
 
-      monday = Date.today.beginning_of_week
+      base_day = params['base_day'] ? Date.parse(params['base_day']) : Date.today
 
       sprint_backlog_issues = client.issues(params["repo"], state: 'open', labels: 'sprint backlog')
       in_progress_issues = client.issues(params["repo"], state: 'open', labels: 'in progress')
       in_review_issues = client.issues(params["repo"], state: 'open', labels: 'in review')
-      closed_issues = client.issues(params["repo"], state: 'closed', since: monday)
+      closed_issues = client.issues(params["repo"], state: 'closed', since: base_day)
       open_issues = sprint_backlog_issues + in_progress_issues + in_review_issues
 
       @open_total_points = open_issues.map(&:labels).flatten.map(&:name)
@@ -23,7 +23,7 @@ class BurndownchartController < ApplicationController
         .reduce(:+)
       @sprint_total_points = @open_total_points.to_i + @closed_total_points.to_i
 
-      sprint = monday..(monday+4.days)
+      sprint = base_day..(base_day+4.days)
 
       @data_labels = sprint.map { |d| d.strftime("%Y年%m月%d日") }
 
