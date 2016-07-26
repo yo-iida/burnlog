@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
     sprint = base_day..(base_day+4.days)
 
-    data_labels = sprint.map { |d| d.strftime("%Y年%m月%d日") }
+    data_labels = sprint.map { |d| d.strftime('%Y-%m-%d') }
 
     # 計画
     dataset1 = [*0..4].map { |i| sprint_total_points - sprint_total_points/4.to_f*i }
