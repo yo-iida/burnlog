@@ -17,7 +17,8 @@ gem 'octokit', '~> 4.0'
 
 gem 'devise'
 gem 'figaro'
-gem 'chart-js-rails'
+
+gem 'gruff'
 
 group :production do
   gem 'rails_12factor'
