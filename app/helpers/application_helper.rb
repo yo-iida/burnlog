@@ -1,16 +1,14 @@
 module ApplicationHelper
-
-  def flash_icon_class(name)
+  def flash_notification_class(name)
     case name
       when :error
-        'icon-exclamation-sign'
+        'is-danger'
       when :alert
-        'icon-warning-sign'
+        'is-warning'
       when :notice
-        'icon-info-sign'
+        'is-info'
       when :success
-        'icon-ok'
+        'is-success'
     end
   end
-  
 end
