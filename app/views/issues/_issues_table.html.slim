@@ -1,0 +1,30 @@
+table.table.table-striped
+  thead
+    tr
+      th
+        | issue title
+      th
+        | assignee
+      th
+        | labels
+      th
+        | created_at
+      th
+        | updated_at
+      th
+        | closed_at
+  tbody
+    - issues.each do |issue|
+      tr
+        td
+          = link_to issue.title, issue.html_url
+        td
+          = issue.assignee.try(:login)
+        td
+          = issue.labels.map(&:name).join(",")
+        td
+          = issue.created_at.try(:in_time_zone, 'Tokyo')
+        td
+          = issue.updated_at.try(:in_time_zone, 'Tokyo')
+        td
+          = issue.closed_at.try(:in_time_zone, 'Tokyo')

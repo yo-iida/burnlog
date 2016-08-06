@@ -1,0 +1,21 @@
+h1
+  | Issues#index
+= link_to "burndownchart", burndownchart_index_path(repo: params[:repo])
+h2
+  | List of sprint backlog issues (#{@sprint_backlog_issues.count})
+= render partial: "issues_table", locals: {issues: @sprint_backlog_issues}
+h2
+  | List of in progress issues (#{@in_progress_issues.count})
+= render partial: "issues_table", locals: {issues: @in_progress_issues}
+h2
+  | List of in review issues (#{@in_review_issues.count})
+= render partial: "issues_table", locals: {issues: @in_review_issues}
+h2
+  | List of closed issues (#{@closed_issues.count})
+= render partial: "issues_table", locals: {issues: @closed_issues}
+h2
+  | List of closed issues with point (#{@closed_issues_with_point.count})
+= render partial: "issues_table", locals: {issues: @closed_issues_with_point}
+h2
+  | List of closed issues with point for copy (#{@closed_issues_with_point.count})
+= render partial: "issues_list", locals: {issues: @closed_issues_with_point}

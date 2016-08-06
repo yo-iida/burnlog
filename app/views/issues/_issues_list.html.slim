@@ -1,0 +1,6 @@
+ul
+  - issues.each do |issue|
+    li
+      = '【目玉機能】' if issue.labels.map(&:name).include?('(｡◉ᆺ◉)')
+      = link_to issue.title, issue.html_url
+      |（#{issue.assignee.try(:login)}）

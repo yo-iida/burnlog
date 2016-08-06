@@ -1,0 +1,11 @@
+- if flash.present?
+  .navbar
+    - flash.each do |name, message|
+      - if [:error, :alert, :notice, :success].include?(name.to_sym)
+        - if flash[name]
+          div[class="bg-#{name}"]
+            span
+              | ×
+            strong
+              span[class="{flash_icon_class(name)}"]
+              = message.html_safe

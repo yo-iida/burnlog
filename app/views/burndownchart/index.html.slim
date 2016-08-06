@@ -1,0 +1,10 @@
+h1
+  | Burndownchart#index
+= link_to "issues", issues_path(repo: params[:repo])
+p
+  | open: 
+  = @open_total_points
+p
+  | closed: 
+  = @closed_total_points
+img[src="#{@img}"]
