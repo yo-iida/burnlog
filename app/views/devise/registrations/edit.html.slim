@@ -1,0 +1,38 @@
+.column.is-half.is-offset-one-quarter
+  .content
+    h3
+      | Edit #{resource_name.to_s.humanize}
+
+    .block
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = devise_error_messages!
+
+        = f.label :email, class: 'label'
+        p.control
+          = f.email_field :email, autofocus: true, class: 'input'
+        
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          | Currently waiting confirmation for: #{resource.unconfirmed_email}
+
+        = f.label :password, class: 'label'
+        = content_tag(:i, '(leave blank if you don\'t want to change it)')
+        p.control
+          = f.password_field :password, autocomplete: 'off', class: 'input'
+
+        = f.label :password_confirmation, class: 'label'
+        p.control
+          = f.password_field :password_confirmation, autocomplete: 'off', class: 'input'
+          
+        = f.label :current_password, class: 'label'
+        = content_tag(:i, '(we need your current password to confirm your changes)')
+        p.control
+          = f.password_field :current_password, autocomplete: 'off', class: 'input'
+
+        p.control
+          = submit_tag 'Update', class: 'button is-primary'
+          = link_to 'Back', :back, class: 'button'
+
+    h3
+      | Delete #{resource_name.to_s.humanize}
+    .block
+      = button_to 'Delete', registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button is-danger'
