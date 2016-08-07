@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
     closed_issues = client.issues(repo, state: 'closed', since: base_day)
     open_issues = sprint_backlog_issues + in_progress_issues + in_review_issues
 
-    open_total_points = total_point(open_issues)
-    closed_total_points = total_point(closed_issues)
+    open_total_points = total_point(open_issues).to_i
+    closed_total_points = total_point(closed_issues).to_i
     sprint_total_points = open_total_points + closed_total_points
 
     sprint = base_day..(base_day+4.days)
