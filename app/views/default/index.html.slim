@@ -1,15 +1,12 @@
-h1
-  | Default#index
-- if user_signed_in?
-  = link_to "Edit", edit_user_registration_path
-  = link_to "Sign out", destroy_user_session_path, :method => :delete
-  h2
-    | リポジトリ一覧
-  - @repos.each do |repo|
-    p
-      = link_to repo.full_name, repo.html_url, alt: repo.description
-      = link_to "issues", issues_path(repo: repo.full_name)
-      = link_to "burndownchart", burndownchart_index_path(repo: repo.full_name)
-- else
-  = link_to "Sign in", new_user_session_path
-  = link_to "Sign in with Github", user_omniauth_authorize_path(:github)
+.content
+  .columns
+    .column.is-8.is-offset-2
+      - @repos.each do |repo|
+        .block
+          .card.is-fullwidth
+            .card-header
+              .card-header-title
+                = link_to repo.full_name, repo.html_url, alt: repo.description
+            .card-content
+              = link_to "issues", issues_path(repo: repo.full_name), class: 'button'
+              = link_to "burndownchart", burndownchart_index_path(repo: repo.full_name), class: 'button'
