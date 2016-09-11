@@ -3,12 +3,20 @@
 h1
   | Burn Down Chart
 
-= render 'shared_partials/repo_navigation'
+.section
+  = render 'shared_partials/repo_navigation'
 
-p
-  | open: 
-  = @open_total_points
-p
-  | closed: 
-  = @closed_total_points
-img[src="#{@img}"]
+.section
+  table.table.is-bordered
+    tr
+      td
+        | open 
+      td = @open_total_points
+    tr
+      td
+        | closed 
+      td = @closed_total_points
+
+.section
+  .has-text-centered
+    img[src="#{@img}"]
