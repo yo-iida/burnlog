@@ -18,6 +18,7 @@ gem 'devise'
 gem 'figaro'
 
 gem 'gruff'
+gem 'slack-ruby-client'
 
 group :production do
   gem 'rails_12factor'
