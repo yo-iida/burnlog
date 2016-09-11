@@ -7,6 +7,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'pg'
 
+gem 'slim-rails'
 gem 'bulma-rails'
 gem 'font-awesome-rails'
 
