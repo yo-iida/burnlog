@@ -21,10 +21,11 @@ table.table.is-striped
         td
           = issue.assignee.try(:login)
         td
-          = issue.labels.map(&:name).join(",")
+          - issue.labels.each do |label|
+            = content_tag(:span, label.name, class: 'tag is-success')
         td
-          = issue.created_at.try(:in_time_zone, 'Tokyo')
+          = issue.created_at.try(:in_time_zone, 'Tokyo').try(:strftime, '%Y-%m-%d %H:%M')
         td
-          = issue.updated_at.try(:in_time_zone, 'Tokyo')
+          = issue.updated_at.try(:in_time_zone, 'Tokyo').try(:strftime, '%Y-%m-%d %H:%M')
         td
-          = issue.closed_at.try(:in_time_zone, 'Tokyo')
+          = issue.closed_at.try(:in_time_zone, 'Tokyo').try(:strftime, '%Y-%m-%d %H:%M')
