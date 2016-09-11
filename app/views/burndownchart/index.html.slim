@@ -1,6 +1,8 @@
 h1
-  | Burndownchart#index
-= link_to "issues", issues_path(repo: params[:repo])
+  | Burn Down Chart
+
+= render 'shared_partials/repo_navigation'
+
 p
   | open: 
   = @open_total_points

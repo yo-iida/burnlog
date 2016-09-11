@@ -11,4 +11,8 @@ module ApplicationHelper
         'is-success'
     end
   end
+
+  def is_active(active_path)
+    'is-active' if request.fullpath.start_with?(active_path)
+  end
 end

@@ -1,0 +1,5 @@
+nav.nav.has-shadow
+  .container
+    .nav-left
+      = link_to 'issues', issues_path(repo: params[:repo]), class: "nav-item is-tab #{is_active('/issues')}"
+      = link_to 'burn down chart', burndownchart_index_path(repo: params[:repo]), class: "nav-item is-tab #{is_active('/burndownchart')}"

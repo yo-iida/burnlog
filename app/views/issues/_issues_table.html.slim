@@ -1,17 +1,17 @@
-table.table.table-striped
+table.table.is-striped
   thead
     tr
-      th
+      th.issue_title
         | issue title
-      th
+      th.assignee
         | assignee
-      th
+      th.labels
         | labels
-      th
+      th.created_at
         | created_at
-      th
+      th.updated_at
         | updated_at
-      th
+      th.closed_at
         | closed_at
   tbody
     - issues.each do |issue|
