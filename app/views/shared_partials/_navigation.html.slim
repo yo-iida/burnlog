@@ -2,11 +2,8 @@
   .container
     .nav-left
       .nav-item.is-tab.is-active
-        | Burnlog
+        = link_to "Burnlog", root_path
     .nav-right
       - if user_signed_in?
-        = link_to "Edit", edit_user_registration_path, class: 'nav-item button'
-        = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-item button'
-      - else
-        = link_to "Sign in", new_user_session_path, class: '.nav-item button'
-        = link_to "Sign in with Github", user_omniauth_authorize_path(:github), class: 'nav-item button'
+        = link_to "Edit", edit_user_registration_path, class: 'nav-item'
+        = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-item'

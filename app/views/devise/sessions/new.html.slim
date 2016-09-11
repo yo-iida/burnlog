@@ -1,0 +1,29 @@
+.column.is-half.is-offset-one-quarter
+  .content
+    h3
+      | Sign in
+
+    .block
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = devise_error_messages!
+      
+        = f.label :email, class: 'label'
+        p.control
+          = f.email_field :email, autofocus: true, class: 'input'
+      
+        = f.label :password, class: 'label'
+        p.control
+          = f.password_field :password, autocomplete: 'off', class: 'input'
+      
+        - if devise_mapping.rememberable?
+          = f.label :remember_me, class: 'label'
+          p.control
+            = f.check_box :remember_me
+      
+        p.control
+          = submit_tag 'Sign in', class: 'button is-primary'
+        hr
+      p.control
+        = link_to \
+          content_tag(:span, content_tag(:i, '', class: 'fa fa-github'), class: 'icon')+'Sign in with Github', \
+          user_omniauth_authorize_path(:github), class: 'button'
