@@ -29,5 +29,3 @@ jobs:
         ruby-version: 2.4.2
     - name: Install dependencies
       run: bundle install
-    - name: Run tests
-      run: bundle exec rspec
