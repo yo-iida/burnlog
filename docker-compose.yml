@@ -1,0 +1,55 @@
+version: '3.6'
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    environment:
+      - AWS_ACCESS_KEY_ID=${MINIO_ACCESS_KEY}
+      - AWS_SECRET_ACCESS_KEY=${MINIO_SECRET_KEY}
+    links:
+      - pgsql
+      - redis
+      - minio
+    depends_on:
+      - pgsql
+      - redis
+    volumes:
+      - .:/app
+      - rails-gem:/usr/local/bundle
+    stdin_open: true
+    command: bundle exec rails s -b 0.0.0.0
+  pgsql:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    volumes:
+      - pgsql-data:/var/lib/postgresql/data
+    env_file:
+      - .env
+  redis:
+    image: redis:6
+    volumes:
+      - session-data:/data
+  minio:
+    image: minio/minio:latest
+    env_file:
+      - .env
+    ports:
+      - 9000:9000
+    volumes:
+      - minio-data:/data
+    command: server /data
+volumes:
+  pgsql-data:
+    driver: local
+  rails-gem:
+    driver: local
+  session-data:
+    driver: local
+  minio-data:
+    driver: local

@@ -24,13 +24,13 @@ vendor/bundle
 /spec/coverage/*
 /tmp/*
 .DS_Store
-.rbenv-version
 .rvmrc
 *.project
 coverage/*
 *.swp
 Thumbs.db
 node_modules/
+.env
 
 # Ignore application configuration
 /config/application.yml
