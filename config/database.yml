@@ -1,19 +1,26 @@
 default: &default
-  encoding: utf8
   adapter: postgresql
+  encoding: utf8
+  charset: utf8
   pool: 5
   timeout: 5000
 
 production:
   <<: *default
-  database: <%= (ENV['DATABASE_URL'] || '') %>
+  database: <%= ENV.fetch('DATABASE_URL', '') %>
 
 development:
   <<: *default
-  database: burnlog_dev
-  username: root
+  host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
+  database: <%= ENV.fetch('DATABASE_DATABASE', 'burnlog_dev') %>
+  username: <%= ENV.fetch('DATABASE_USER', 'root') %>
+  password: <%= ENV.fetch('DATABASE_PASSWORD', 'password') %>
+  port: <%= ENV.fetch('DATABASE_PORT', '5432') %>
 
 test:
   <<: *default
-  database: burnlog_test
-  username: root
+  host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
+  database: <%= ENV.fetch('DATABASE_DATABASE', 'burnlog_test') %>
+  username: <%= ENV.fetch('DATABASE_USER', 'root') %>
+  password: <%= ENV.fetch('DATABASE_PASSWORD', 'password') %>
+  port: <%= ENV.fetch('DATABASE_PORT', '5432') %>
